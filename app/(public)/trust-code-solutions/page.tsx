@@ -23,8 +23,12 @@ export default function TrustCodeSolutionsPage() {
     <div className="overflow-hidden bg-white text-truster-foreground selection:bg-truster-primary selection:text-white">
       
       {/* ── HERO ── */}
-      <section className="noise-bg relative min-h-[85vh] w-full bg-[#EBE9DF] px-6 pb-16 pt-32 lg:px-12 lg:pt-32 border-b brutalist-border flex flex-col justify-center">
+      <section className="noise-bg relative min-h-[85vh] w-full bg-[#EBE9DF] px-6 pb-16 pt-32 lg:px-12 lg:pt-32 border-b brutalist-border flex flex-col justify-center overflow-hidden">
         <div className="absolute inset-0 swiss-grid opacity-30 mix-blend-multiply pointer-events-none" />
+
+        <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[420px] h-[420px] lg:w-[680px] lg:h-[680px] opacity-80 pointer-events-none hidden md:block z-0 mix-blend-darken">
+          <Image src="/images/bgeraser_results/trust_code_hero.png" alt="Trust Code Solutions" fill className="object-contain" priority />
+        </div>
         
         <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col justify-center mt-12 lg:mt-0">
           <Reveal delay={0.1}>
@@ -56,21 +60,6 @@ export default function TrustCodeSolutionsPage() {
           </div>
         </div>
       </section>
-
-      {/* ── IMAGE SECTION ── */}
-      <SwissSection className="bg-white py-0 md:py-0 px-0 lg:px-0 xl:px-0">
-        <Reveal delay={0.2}>
-          <div className="relative h-[50vh] lg:h-[80vh] w-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-            <Image
-              src="/images/trust_code_hero.png"
-              alt="Trust Code Solutions"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </Reveal>
-      </SwissSection>
 
       {/* ── APPROACH ── */}
       <SwissSection className="noise-bg bg-truster-foreground text-white">

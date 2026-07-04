@@ -6,7 +6,7 @@ import { Reveal, SectionLabel, SwissSection, WhatsAppLink } from "@/components/p
 const experiences = [
   { title: "Domestic Tours", label: "01. India", image: "/images/arvi_yatra_hero.png", text: "Curated travel packages across India with comfortable planning and support." },
   { title: "International Tours", label: "02. Global", image: "/images/travel.png", text: "Organized assistance for global destinations, group travel, and guided experiences." },
-  { title: "Spiritual Tours", label: "03. Pilgrimage", image: "/images/image copy.png", text: "Well-planned spiritual journeys with attention to comfort, timing, and care." },
+  { title: "Spiritual Tours", label: "03. Pilgrimage", image: "/images/bgeraser_results/temple.png", text: "Well-planned spiritual journeys with attention to comfort, timing, and care." },
 ];
 
 const principles = [
@@ -20,8 +20,12 @@ export default function ArviYatraPage() {
     <div className="overflow-hidden bg-white text-truster-foreground selection:bg-truster-primary selection:text-white">
       
       {/* ── HERO ── */}
-      <section className="noise-bg relative min-h-[85vh] w-full bg-[#EBE9DF] px-6 pb-16 pt-32 lg:px-12 lg:pt-32 border-b brutalist-border flex flex-col justify-center">
+      <section className="noise-bg relative min-h-[85vh] w-full bg-[#EBE9DF] px-6 pb-16 pt-32 lg:px-12 lg:pt-32 border-b brutalist-border flex flex-col justify-center overflow-hidden">
         <div className="absolute inset-0 swiss-grid opacity-30 mix-blend-multiply pointer-events-none" />
+
+        <div className="absolute right-[2%] top-1/2 -translate-y-1/2 w-[300px] h-[300px] lg:w-[480px] lg:h-[480px] opacity-80 pointer-events-none hidden md:block z-0 mix-blend-darken">
+          <Image src="/images/bgeraser_results/arvi_yatra_hero.png" alt="Arvi Yatra" fill className="object-contain" priority />
+        </div>
         
         <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col justify-center mt-12 lg:mt-0">
           <Reveal delay={0.1}>
@@ -53,21 +57,6 @@ export default function ArviYatraPage() {
           </div>
         </div>
       </section>
-
-      {/* ── IMAGE SECTION ── */}
-      <SwissSection className="bg-white py-0 md:py-0 px-0 lg:px-0 xl:px-0">
-        <Reveal delay={0.2}>
-          <div className="relative h-[50vh] lg:h-[80vh] w-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-            <Image
-              src="/images/arvi_yatra_hero.png"
-              alt="Travel Experiences"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </Reveal>
-      </SwissSection>
 
       {/* ── APPROACH ── */}
       <SwissSection className="noise-bg bg-truster-foreground text-white">
@@ -106,13 +95,7 @@ export default function ArviYatraPage() {
           {experiences.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.1} className="h-full border-b md:border-b-0 md:border-r brutalist-border last:border-r-0">
               <div className="h-full hover:bg-white transition-colors group flex flex-col">
-                <div className="relative aspect-square w-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700"
-                  />
+                <div className="relative w-full overflow-hidden bg-truster-foreground/5 h-2">
                   <div className="absolute inset-0 noise-bg" />
                 </div>
                 <div className="p-8 lg:p-10 flex-1 flex flex-col justify-between">

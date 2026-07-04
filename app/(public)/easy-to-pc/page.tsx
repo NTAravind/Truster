@@ -1,50 +1,47 @@
 import Image from "next/image";
 import { Bot, Workflow, Code2, Network, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { Reveal, SwissSection, MaterialLink, SectionLabel } from "@/components/public/SwissPrimitives";
 
 export default function EasyToPcPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-white font-sans text-truster-foreground pt-[80px]">
+    <div className="overflow-hidden bg-white text-truster-foreground selection:bg-truster-primary selection:text-white">
       
-      {/* ── HERO SECTION ── */}
-      <section className="mx-auto flex w-full max-w-[1600px] flex-col-reverse gap-16 px-6 py-24 lg:flex-row lg:items-center lg:px-12 lg:py-32">
-        <div className="flex flex-1 flex-col justify-center">
-          <span className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-[#1F73BD]">
-            EASY TO PC SOLUTIONS
-          </span>
-          <h1 className="mb-8 text-5xl font-black tracking-tighter sm:text-6xl lg:text-7xl xl:text-8xl">
-            Automate the<br />Impossible.
-          </h1>
-          <p className="mb-12 max-w-xl text-lg leading-relaxed text-truster-foreground/80">
-            We build sophisticated AI agents, high-performance web applications, and scalable SaaS architectures that redefine operational efficiency.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="#capabilities"
-              className="flex h-12 w-full sm:w-auto items-center justify-center bg-black px-8 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-black/90"
-            >
-              Explore Capabilities
-            </Link>
-            <Link
-              href="/contact"
-              className="flex h-12 w-full sm:w-auto items-center justify-center border border-black bg-white px-8 text-[11px] font-bold uppercase tracking-[0.2em] text-black transition-colors hover:bg-gray-50"
-            >
-              Book Consultation
-            </Link>
-          </div>
+      {/* ── HERO ── */}
+      <section className="noise-bg relative min-h-[85vh] w-full bg-[#EBE9DF] px-6 pb-16 pt-32 lg:px-12 lg:pt-32 border-b brutalist-border flex flex-col justify-center overflow-hidden">
+        <div className="absolute inset-0 swiss-grid opacity-30 mix-blend-multiply pointer-events-none" />
+
+        <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[420px] h-[420px] lg:w-[680px] lg:h-[680px] opacity-80 pointer-events-none hidden md:block z-0 mix-blend-darken">
+          <Image src="/images/bgeraser_results/easy_to_pc_hero.png" alt="Easy To PC Automation" fill className="object-contain" priority />
         </div>
-        <div className="flex-1 relative flex items-center justify-end">
-          {/* Box with offset shadow matching screenshot */}
-          <div className="relative w-full max-w-2xl bg-white border border-gray-100 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-             <div className="aspect-[16/9] w-full relative">
-                <Image
-                  src="/images/easy_to_pc_hero.png"
-                  alt="AI Automation Eye"
-                  fill
-                  className="object-contain p-8"
-                  priority
-                />
-             </div>
+        
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col justify-center mt-12 lg:mt-0">
+          <Reveal delay={0.1}>
+            <div className="flex items-center gap-6 mb-6 lg:mb-10">
+              <span className="editorial-label text-truster-primary">DIVISION 03</span>
+              <span className="h-[1px] w-24 bg-truster-foreground/20" />
+              <span className="editorial-label">Digital Products</span>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2} className="w-full">
+            <h1 className="editorial-text text-[14vw] lg:text-[11rem] xl:text-[13rem] -ml-2 lg:-ml-4 text-truster-foreground mix-blend-darken">
+              EASY<br />TO PC.
+            </h1>
+          </Reveal>
+
+          <div className="mt-8 lg:mt-16 grid lg:grid-cols-12 gap-8 lg:gap-16 items-end">
+            <Reveal delay={0.4} className="lg:col-span-4 order-2 lg:order-1">
+              <MaterialLink href="#capabilities" inverse>
+                Explore Capabilities
+              </MaterialLink>
+            </Reveal>
+
+            <Reveal delay={0.3} className="lg:col-span-8 order-1 lg:order-2">
+              <p className="text-xl lg:text-3xl font-medium tracking-tight leading-[1.2] max-w-2xl text-truster-foreground/80">
+                Automate the impossible. We build sophisticated AI agents, high-performance web applications, and scalable SaaS architectures that redefine operational efficiency.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>

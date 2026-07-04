@@ -22,15 +22,6 @@ export function BlogCard({ blog }: BlogCardProps) {
     <Reveal>
       <Link href={`/blog/${blog.slug}`} className="block h-full group border-b border-r brutalist-border">
         <div className="h-full flex flex-col bg-white hover:bg-[#F3F1E8] transition-colors duration-500">
-          {blog.cover_image && (
-            <div className="aspect-[4/3] relative overflow-hidden bg-truster-foreground border-b brutalist-border">
-              <img
-                src={blog.cover_image}
-                alt={blog.title}
-                className="object-cover w-full h-full mix-blend-screen opacity-90 grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-              />
-            </div>
-          )}
           <div className="p-8 lg:p-10 flex flex-col flex-1">
             <div className="flex items-center gap-4 mb-8">
               <span className="editorial-label text-truster-primary">

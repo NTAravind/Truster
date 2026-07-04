@@ -17,7 +17,7 @@ const brands = [
     fullTitle: "Trust Code Solutions",
     label: "01. Business Systems",
     href: "/trust-code-solutions",
-    image: "/images/trust_code_hero.png",
+    image: "/images/bgeraser_results/trust_code_hero.png",
     text: "ERP, accounting, CRM, compliance, and practical consulting for growing operations.",
     accent: "#1F73BD",
   },
@@ -26,7 +26,7 @@ const brands = [
     fullTitle: "Arvi Yatra",
     label: "02. Travel Experiences",
     href: "/arvi-yatra",
-    image: "/images/arvi_yatra_hero.png",
+    image: "/images/bgeraser_results/arvi_yatra_hero.png",
     text: "Domestic, international, spiritual, and group travel planned with dependable care.",
     accent: "#1F73BD",
   },
@@ -35,7 +35,7 @@ const brands = [
     fullTitle: "Easy to PC",
     label: "03. Digital Products",
     href: "/easy-to-pc",
-    image: "/images/easy_to_pc_hero.png",
+    image: "/images/bgeraser_results/easy_to_pc_hero.png",
     text: "AI automation, websites, apps, SaaS platforms, and commerce systems built for scale.",
     accent: "#1F73BD",
   },
@@ -85,7 +85,7 @@ export default function HomePage() {
         <div className="absolute inset-0 swiss-grid opacity-30 mix-blend-multiply pointer-events-none" />
 
         <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] lg:w-[800px] lg:h-[800px] opacity-80 pointer-events-none hidden md:block z-0 mix-blend-darken">
-           <Image src="/images/truster_ecosystem_hero.png" alt="Truster Ecosystem" fill className="object-contain" priority />
+           <Image src="/images/bgeraser_results/truster_ecosystem_hero.png" alt="Truster Ecosystem" fill className="object-contain" priority />
         </div>
 
         <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col justify-center mt-12 lg:mt-0">
@@ -125,12 +125,12 @@ export default function HomePage() {
           <SectionLabel>Our Ecosystem</SectionLabel>
         </Reveal>
 
-        <div className="mt-16 lg:mt-32 flex flex-col gap-24 lg:gap-48">
+        <div className="mt-12 lg:mt-16 flex flex-col gap-8 lg:gap-12">
           {brands.map((brand, index) => {
             const isEven = index % 2 === 0;
             return (
               <Reveal key={brand.href} delay={0.2}>
-                <div className={`grid grid-cols-1 gap-8 lg:gap-16 items-center ${isEven ? 'lg:grid-cols-[5fr_7fr]' : 'lg:grid-cols-[7fr_5fr]'}`}>
+                <div className={`grid grid-cols-1 gap-8 lg:gap-12 items-center ${isEven ? 'lg:grid-cols-[5fr_7fr]' : 'lg:grid-cols-[7fr_5fr]'}`}>
 
                   <div className={`flex flex-col ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                     <span className="editorial-label text-truster-foreground/50 mb-6 block">
@@ -145,19 +145,18 @@ export default function HomePage() {
                       {brand.text}
                     </p>
                     <div>
-                      <MaterialLink href={brand.href}>View Platform</MaterialLink>
+                      <MaterialLink href={brand.href} inverse={true}>View Platform</MaterialLink>
                     </div>
                   </div>
 
                   <div className={`relative ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <div className="relative aspect-[4/5] lg:aspect-square w-full overflow-hidden bg-[#F3F1E8]">
+                    <div className="relative aspect-[4/3] lg:aspect-video w-full">
                       <Image
                         src={brand.image}
                         alt={brand.fullTitle}
                         fill
-                        className="object-cover mix-blend-multiply opacity-90 transition-transform duration-700 hover:scale-105 grayscale hover:grayscale-0"
+                        className="object-contain transition-transform duration-700 hover:scale-105 drop-shadow-xl"
                       />
-                      <div className="absolute inset-0 noise-bg" />
                     </div>
                   </div>
                 </div>

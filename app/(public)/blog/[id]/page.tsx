@@ -83,11 +83,6 @@ export default async function BlogDetailPage({
         {blog.cover_image && (
           <Reveal delay={0.4}>
             <div className="w-full aspect-[21/9] lg:aspect-[3/1] relative overflow-hidden bg-truster-foreground border-b brutalist-border">
-              <img
-                src={blog.cover_image}
-                alt={blog.title}
-                className="w-full h-full object-cover mix-blend-screen opacity-90 grayscale hover:grayscale-0 transition-all duration-700"
-              />
             </div>
           </Reveal>
         )}

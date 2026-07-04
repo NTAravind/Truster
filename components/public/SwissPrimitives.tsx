@@ -80,9 +80,9 @@ export function WhatsAppLink({
       href={`https://wa.me/${phone ?? ""}`}
       target="_blank"
       rel="noreferrer"
-      className="group relative inline-flex h-14 items-center justify-center gap-4 overflow-hidden rounded-none border border-current/20 px-8 text-[11px] font-bold uppercase tracking-[0.2em] text-current transition-colors hover:bg-current hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-truster-primary/20"
+      className="group relative inline-flex h-14 items-center justify-center gap-4 overflow-hidden rounded-none bg-white px-8 text-[11px] font-bold uppercase tracking-[0.2em] text-truster-foreground transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-truster-primary/20 shadow-sm"
     >
-      <span className="relative z-10 flex items-center gap-4 group-hover:text-white mix-blend-difference">
+      <span className="relative z-10 flex items-center gap-4 group-hover:text-truster-primary">
         {children}
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
       </span>
