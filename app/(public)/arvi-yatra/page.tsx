@@ -59,8 +59,8 @@ export default function ArviYatraPage() {
         <Reveal delay={0.2}>
           <div className="relative h-[50vh] lg:h-[80vh] w-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
             <Image
-              src="/images/travel.png"
-              alt="Arvi Yatra journey"
+              src="/images/arvi_yatra_hero.png"
+              alt="Travel Experiences"
               fill
               className="object-cover"
               priority

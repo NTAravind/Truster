@@ -63,7 +63,7 @@
 }
 
 :root {
-  --font-sans: "IBM Plex Sans", "Aptos", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --background: #ffffff;
   --foreground: #0a2540;
   --card: #ffffff;
@@ -207,5 +207,5 @@
 }
 
 @theme {
-  --font-sans: var(--font-ibm-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }

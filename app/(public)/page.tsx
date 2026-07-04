@@ -81,8 +81,12 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden bg-white text-truster-foreground selection:bg-truster-primary selection:text-white">
       {/* ── HERO ── */}
-      <section className="noise-bg relative min-h-[85vh] w-full bg-[#EBE9DF] px-6 pb-16 pt-32 lg:px-12 lg:pt-32 border-b brutalist-border flex flex-col justify-center">
+      <section className="noise-bg relative min-h-[85vh] w-full bg-[#EBE9DF] px-6 pb-16 pt-32 lg:px-12 lg:pt-32 border-b brutalist-border flex flex-col justify-center overflow-hidden">
         <div className="absolute inset-0 swiss-grid opacity-30 mix-blend-multiply pointer-events-none" />
+
+        <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] lg:w-[800px] lg:h-[800px] opacity-80 pointer-events-none hidden md:block z-0 mix-blend-darken">
+           <Image src="/images/truster_ecosystem_hero.png" alt="Truster Ecosystem" fill className="object-contain" priority />
+        </div>
 
         <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col justify-center mt-12 lg:mt-0">
           <Reveal delay={0.1}>
