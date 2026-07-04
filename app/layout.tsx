@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
-import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-plex-sans",
+});
 
 export const metadata: Metadata = {
   title: "TRUSTER",
@@ -17,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full antialiased", inter.variable)}>
-      <body className="min-h-full flex flex-col">
+    <html lang="en" className={`h-full antialiased ${ibmPlexSans.variable}`}>
+      <body className="min-h-full flex flex-col font-sans">
         {children}
         <Toaster />
       </body>

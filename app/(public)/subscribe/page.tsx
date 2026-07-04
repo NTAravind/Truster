@@ -1,6 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { SubscribeForm } from '@/components/public/SubscribeForm';
-import { MailOpen } from 'lucide-react';
 
 export const metadata = {
   title: 'Subscribe - TRUSTER',
@@ -9,24 +8,37 @@ export const metadata = {
 
 export default function SubscribePage() {
   return (
-    <div className="bg-background text-foreground min-h-[calc(100vh-4rem)] flex flex-col justify-center selection:bg-primary/20 py-20">
-      <main className="container mx-auto px-4 max-w-2xl">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
-            <MailOpen className="h-8 w-8" />
+    <div className="bg-[#EBE9DF] text-truster-foreground min-h-screen selection:bg-truster-primary selection:text-white">
+      
+      {/* ── HERO ── */}
+      <section className="noise-bg relative min-h-[50vh] w-full px-6 pb-16 pt-32 lg:px-12 lg:pt-32 border-b brutalist-border flex flex-col justify-center">
+        <div className="absolute inset-0 swiss-grid opacity-30 mix-blend-multiply pointer-events-none" />
+        
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col justify-center mt-12 lg:mt-0">
+          <div className="flex items-center gap-6 mb-6 lg:mb-10">
+            <span className="editorial-label text-truster-primary">NEWSLETTER</span>
+            <span className="h-[1px] w-24 bg-truster-foreground/20" />
+            <span className="editorial-label">Updates</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Stay Connected</h1>
-          <p className="text-xl text-muted-foreground font-light leading-relaxed">
+
+          <h1 className="editorial-text text-[12vw] lg:text-[10rem] xl:text-[11rem] -ml-2 lg:-ml-4 text-truster-foreground mix-blend-darken">
+            STAY<br />CONNECTED.
+          </h1>
+
+          <p className="mt-8 lg:mt-12 text-xl lg:text-3xl font-medium tracking-tight leading-[1.2] max-w-2xl text-truster-foreground/80">
             Get personalized content delivered to your inbox. Choose the topics that matter most to you from across our ecosystem.
           </p>
         </div>
+      </section>
 
-        <Card className="border-border/60 shadow-lg shadow-black/5 bg-background">
-          <CardContent className="p-8 md:p-12">
+      {/* ── FORM SECTION ── */}
+      <section className="w-full bg-white px-6 py-16 lg:px-12 lg:py-32">
+        <div className="mx-auto w-full max-w-[1200px]">
+          <div className="max-w-[700px]">
             <SubscribeForm />
-          </CardContent>
-        </Card>
-      </main>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

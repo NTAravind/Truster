@@ -1,35 +1,64 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Search, User, ShoppingCart } from "lucide-react";
+
+const navItems = [
+  { label: "Trust Code", href: "/trust-code-solutions" },
+  { label: "Arvi Yatra", href: "/arvi-yatra" },
+  { label: "Easy to PC", href: "/easy-to-pc" },
+  { label: "Blog", href: "/blog" },
+];
 
 export function PublicNavbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto max-w-5xl px-4 flex h-16 items-center justify-between">
-        <div className="flex items-center gap-8">
-          <Link href="/" className="font-bold text-xl tracking-tight text-primary">
-            TRUSTER
+    <div className="fixed top-6 z-50 w-full px-6 lg:px-12 pointer-events-none">
+      <div className="mx-auto flex h-[72px] w-full max-w-[1600px] items-center justify-between rounded-none border border-truster-foreground/20 bg-white/60 backdrop-blur-xl shadow-sm pointer-events-auto overflow-hidden">
+        
+        {/* Left Section (Logo) */}
+        <div className="flex h-full items-center border-r border-truster-foreground/20 px-8">
+          <Link href="/" className="flex items-center gap-1 text-[20px] font-black tracking-tighter text-truster-foreground">
+            TRUSTER<sup className="text-[10px] font-bold text-truster-foreground/50 mt-2">®</sup>
           </Link>
-          <nav className="hidden md:flex gap-6">
-            <Link href="/trust-code-solutions" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Trust Code Solutions
-            </Link>
-            <Link href="/arvi-yatra" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Arvi Yatra
-            </Link>
-            <Link href="/easy-to-pc" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Easy to PC
-            </Link>
-          </nav>
         </div>
-        <div className="flex items-center gap-6">
-          <Link href="/blog" className="hidden sm:block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            Blog
+
+        {/* Middle Section (Nav Links) */}
+        <nav className="hidden h-full flex-1 items-center justify-center gap-12 lg:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group relative flex h-full items-center px-4 text-[11px] font-bold uppercase tracking-[0.2em] text-truster-foreground transition-colors hover:text-truster-primary"
+            >
+              {item.label}
+              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-truster-primary transition-all duration-300 group-hover:w-full" />
+            </Link>
+          ))}
+        </nav>
+
+        {/* Right Section (Icons) */}
+        <div className="flex h-full items-center gap-8 border-l border-truster-foreground/20 px-8">
+          <Link
+            href="/blog"
+            aria-label="Search"
+            className="text-truster-foreground transition-colors hover:text-truster-primary"
+          >
+            <Search className="size-4 stroke-[1.5]" />
           </Link>
-          <Button asChild variant="default" className="rounded-full px-6">
-            <Link href="/subscribe">Subscribe</Link>
-          </Button>
+          <Link
+            href="/subscribe"
+            aria-label="Account"
+            className="text-truster-foreground transition-colors hover:text-truster-primary"
+          >
+            <User className="size-4 stroke-[1.5]" />
+          </Link>
+          <Link
+            href="/subscribe"
+            aria-label="Cart"
+            className="text-truster-foreground transition-colors hover:text-truster-primary"
+          >
+            <ShoppingCart className="size-4 stroke-[1.5]" />
+          </Link>
         </div>
       </div>
-    </header>
+    </div>
   );
 }

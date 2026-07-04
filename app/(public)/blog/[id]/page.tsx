@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { Badge } from '@/components/ui/badge';
 import { TopicBadge } from '@/components/public/TopicBadge';
+import { Reveal, SwissSection, SectionLabel } from '@/components/public/SwissPrimitives';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,77 +34,89 @@ export default async function BlogDetailPage({
   }
 
   return (
-    <div className="min-h-screen">
-      <header className="border-b">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold">Trust Code Solutions</Link>
-          <nav className="flex items-center gap-4">
-            <Link href="/blog" className="text-sm font-medium">Blog</Link>
-            <Link href="/subscribe" className="text-sm font-medium">Subscribe</Link>
-          </nav>
+    <div className="bg-[#EBE9DF] text-truster-foreground min-h-screen selection:bg-truster-primary selection:text-white">
+      
+      {/* ── HERO ── */}
+      <section className="noise-bg relative min-h-[85vh] w-full px-6 pb-16 pt-32 lg:px-12 lg:pt-32 border-b brutalist-border flex flex-col justify-center">
+        <div className="absolute inset-0 swiss-grid opacity-30 mix-blend-multiply pointer-events-none" />
+        
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col justify-center mt-12 lg:mt-0">
+          <Reveal delay={0.1}>
+            <Link href="/blog" className="inline-flex items-center gap-4 mb-6 lg:mb-10 group">
+              <span className="text-truster-primary transition-transform duration-300 group-hover:-translate-x-2">&larr;</span>
+              <span className="editorial-label group-hover:text-truster-primary transition-colors">Back to Insights</span>
+            </Link>
+            
+            <div className="flex flex-wrap items-center gap-4 lg:gap-6 mb-6 lg:mb-10">
+              <span className="editorial-label text-truster-primary">
+                {blog.segment === 'trust_code' ? 'Trust Code' : blog.segment === 'arvi_yatra' ? 'Arvi Yatra' : 'Easy to PC'}
+              </span>
+              <span className="h-[1px] w-8 lg:w-16 bg-truster-foreground/20" />
+              <span className="editorial-label text-truster-foreground/50">
+                {new Date(blog.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              </span>
+              <span className="h-[1px] w-8 lg:w-16 bg-truster-foreground/20" />
+              <span className="editorial-label text-truster-foreground/50">
+                {blog.views} Views
+              </span>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-black uppercase tracking-tighter leading-[0.9] text-truster-foreground mix-blend-darken">
+              {blog.title}
+            </h1>
+          </Reveal>
+          
+          <Reveal delay={0.3}>
+            <div className="mt-8 lg:mt-12 flex flex-wrap gap-2">
+              {(blog.topics as string[]).map((topic: string) => (
+                <TopicBadge key={topic} topic={topic} />
+              ))}
+            </div>
+          </Reveal>
         </div>
-      </header>
+      </section>
 
-      <main className="container mx-auto px-4 py-12 max-w-3xl">
-        <Link href="/blog" className="text-sm text-muted-foreground hover:underline mb-4 inline-block">
-          &larr; Back to Blog
-        </Link>
-
-        <Badge variant="secondary" className="mb-4">
-          {blog.segment === 'trust_code' ? 'Trust Code Solutions' : blog.segment === 'arvi_yatra' ? 'Arvi Yatra' : 'Easy to PC'}
-        </Badge>
-
-        <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
-
-        <div className="flex flex-wrap gap-2 mb-8">
-          {(blog.topics as string[]).map((topic: string) => (
-            <TopicBadge key={topic} topic={topic} />
-          ))}
-        </div>
-
+      {/* ── CONTENT ── */}
+      <SwissSection className="bg-white px-0 lg:px-0 xl:px-0 py-0 md:py-0 border-none">
         {blog.cover_image && (
-          <img
-            src={blog.cover_image}
-            alt={blog.title}
-            className="w-full rounded-lg mb-8"
-          />
+          <Reveal delay={0.4}>
+            <div className="w-full aspect-[21/9] lg:aspect-[3/1] relative overflow-hidden bg-truster-foreground border-b brutalist-border">
+              <img
+                src={blog.cover_image}
+                alt={blog.title}
+                className="w-full h-full object-cover mix-blend-screen opacity-90 grayscale hover:grayscale-0 transition-all duration-700"
+              />
+            </div>
+          </Reveal>
         )}
 
-        <div
-          className="prose max-w-none"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
-        />
+        <div className="w-full max-w-[900px] mx-auto px-6 lg:px-12 py-16 lg:py-32">
+          <Reveal delay={0.5}>
+            <div
+              className="prose prose-lg md:prose-xl max-w-none prose-headings:font-black prose-headings:tracking-tighter prose-headings:uppercase prose-headings:text-truster-foreground prose-p:text-truster-foreground/80 prose-p:leading-relaxed prose-a:text-truster-primary prose-a:underline-offset-4 hover:prose-a:text-truster-primary-hover prose-strong:font-bold prose-strong:text-truster-foreground"
+              dangerouslySetInnerHTML={{ __html: blog.content }}
+            />
+          </Reveal>
 
-        {blog.external_link && (
-          <div className="mt-8 p-4 bg-muted rounded-lg">
-            <p className="text-sm text-muted-foreground mb-2">External Link:</p>
-            <a
-              href={blog.external_link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              {blog.external_link}
-            </a>
-          </div>
-        )}
-
-        <div className="mt-8 text-sm text-muted-foreground">
-          {new Date(blog.created_at).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-          {' • '}
-          {blog.views} views
+          {blog.external_link && (
+            <Reveal delay={0.6}>
+              <div className="mt-24 p-8 lg:p-12 border brutalist-border bg-[#F3F1E8]">
+                <span className="editorial-label mb-6 block text-truster-foreground/50">External Reference</span>
+                <a
+                  href={blog.external_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl lg:text-3xl font-black tracking-tighter uppercase text-truster-foreground hover:text-truster-primary transition-colors break-all"
+                >
+                  Visit Link &rarr;
+                </a>
+              </div>
+            </Reveal>
+          )}
         </div>
-      </main>
-
-      <footer className="border-t py-8">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Trust Code Solutions. All rights reserved.</p>
-        </div>
-      </footer>
+      </SwissSection>
     </div>
   );
 }
