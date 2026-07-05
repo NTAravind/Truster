@@ -62,20 +62,20 @@ export function PublicNavbar() {
                 <span className="sr-only">Toggle Menu</span>
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-8 mt-12">
-                <div className="text-2xl font-black tracking-tighter text-truster-foreground">
+            <SheetContent side="right" className="w-full sm:max-w-full">
+              <div className="flex flex-col h-full mt-10">
+                <div className="text-3xl font-black tracking-tighter text-truster-foreground px-2 mb-8">
                   TRUSTER
                 </div>
-                <nav className="flex flex-col gap-6">
+                <nav className="flex flex-col">
                   {navItems.map((item) => {
                     const isActive = pathname === item.href || (pathname?.startsWith(item.href) && item.href !== "/");
                     return (
                       <SheetClose asChild key={item.href}>
                         <Link
                           href={item.href}
-                          className={`text-lg font-bold uppercase tracking-[0.1em] transition-colors hover:text-truster-primary ${
-                            isActive ? "text-truster-primary" : "text-truster-foreground"
+                          className={`flex items-center w-full py-6 px-2 border-b border-truster-foreground/20 text-lg sm:text-xl font-bold uppercase tracking-[0.1em] transition-colors hover:text-truster-primary ${
+                            isActive ? "text-truster-primary border-truster-primary" : "text-truster-foreground"
                           }`}
                         >
                           {item.label}
